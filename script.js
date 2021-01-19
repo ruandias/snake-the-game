@@ -1,4 +1,6 @@
 let canvas = document.getElementById("snake"); //criar elemento que irá rodar o jogo
+const quadroPontuacao = document.querySelector('.score span');
+console.log(quadroPontuacao);
 let context = canvas.getContext("2d"); //....
 let box = 32;
 let snake = []; //criar cobrinha como lista, já que ela vai ser uma série de coordenadas, que quando pintadas, criam os quadradinhos
@@ -11,6 +13,8 @@ let food ={
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 }
+
+let pontuacao = 0;
 
 function reiniciaJogo()
 {
@@ -75,6 +79,8 @@ function iniciarJogo(){
     }else{
         food.x = Math.floor(Math.random() * 15 +1) * box;
         food.y = Math.floor(Math.random() * 15 +1) * box;
+        pontuacao = pontuacao + 20;
+        quadroPontuacao.innerText = pontuacao;
     }
     
     let newHead ={
